@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carolina - Asesoría Tributaria, Contable y Legal</title>
-    <meta name="description" content="Asesoría tributaria, contable y legal profesional en Santiago, Chile. Atención personalizada para empresas y emprendedores.">
+    <meta name="theme-color" content="#0f2942">
+
+    <!-- SEO -->
+    <title>Carolina Asesorias | Asesoria Tributaria, Contable y Legal en Chile</title>
+    <meta name="description" content="Asesoria tributaria, contable y legal profesional en Chile. Optimizacion fiscal, contabilidad, constitucion de empresas y representacion ante el SII. Primera consulta gratis.">
+    <meta name="keywords" content="asesoria tributaria, asesoria contable, asesoria legal, contador, abogada tributaria, SII, constitucion de empresas, Chile">
+    <meta name="author" content="Carolina Asesorias">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sakura-saas.vercel.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sakura-saas.vercel.app/">
+    <meta property="og:title" content="Carolina Asesorias | Tributaria, Contable y Legal">
+    <meta property="og:description" content="Asesoria profesional para que tu negocio cumpla la normativa y optimice su carga impositiva. Primera consulta gratis.">
+    <meta property="og:locale" content="es_CL">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Carolina Asesorias | Tributaria, Contable y Legal">
+    <meta name="twitter:description" content="Asesoria profesional para empresas y emprendedores. Primera consulta gratis.">
+
+    <!-- Favicon (SVG inline: balanza dorada) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4a745' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20'/%3E%3Cpath d='M2 12h20'/%3E%3C/svg%3E">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +38,9 @@
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Calendly -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
     <style>
         * {
@@ -887,6 +912,76 @@
             color: var(--accent);
         }
 
+        /* =========== EQUIPO =========== */
+        .equipo {
+            padding: 7rem 0;
+            background: white;
+        }
+
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .equipo-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .equipo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .equipo-photo {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background: var(--bg-muted);
+            display: block;
+        }
+
+        .equipo-photo-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .equipo-body {
+            padding: 1.5rem;
+        }
+
+        .equipo-body h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .equipo-role {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .equipo-body p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
         /* =========== TESTIMONIOS =========== */
         .testimonios {
             padding: 7rem 0;
@@ -1091,6 +1186,35 @@
             background: var(--primary-mid);
             transform: translateY(-2px);
             box-shadow: 0 4px 14px rgba(15,41,66,0.25);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-result {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            text-align: center;
+            display: none;
+        }
+
+        .form-result.success {
+            display: block;
+            background: #ecfdf5;
+            color: #059669;
+            border: 1px solid #a7f3d0;
+        }
+
+        .form-result.error {
+            display: block;
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
         }
 
         /* =========== FOOTER =========== */
@@ -1305,9 +1429,11 @@
             .stat-number { font-size: 2.2rem; }
             .stat-item { padding: 1rem 0.5rem; }
 
-            .servicios, .agendar, .blog, .about, .testimonios, .contacto {
+            .servicios, .agendar, .blog, .about, .equipo, .testimonios, .contacto {
                 padding: 4rem 0;
             }
+
+            .equipo-grid { grid-template-columns: 1fr; max-width: 340px; }
 
             .section-header h2 { font-size: 1.8rem; }
             .section-header p { font-size: 0.95rem; }
@@ -1367,8 +1493,8 @@
                 <ul class="nav-links">
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#agendar">Agendar</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
                     <li><a href="#blog">Blog</a></li>
-                    <li><a href="#about">Sobre Mi</a></li>
                     <li><a href="#contacto" class="nav-cta">Contactar</a></li>
                 </ul>
                 <button class="mobile-toggle" aria-label="Menu">
@@ -1390,7 +1516,7 @@
                     <h1>Asesoria <span class="gradient-text">Tributaria</span>, Contable y Legal</h1>
                     <p>Soluciones profesionales para que tu negocio cumpla con la normativa vigente y optimice su carga impositiva. Atencion personalizada con enfoque practico.</p>
                     <div class="hero-buttons">
-                        <a href="#agendar" class="btn btn-primary">
+                        <a href="#agendar" class="btn btn-primary" data-calendly>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                             Agendar Consulta
                         </a>
@@ -1537,7 +1663,7 @@
                             <p>Confirma tus datos y recibe la confirmacion por email</p>
                         </div>
                     </div>
-                    <a href="#contacto" class="btn btn-primary">
+                    <a href="#agendar" class="btn btn-primary" data-calendly>
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         Agendar Ahora
                     </a>
@@ -1678,6 +1804,50 @@
         </div>
     </section>
 
+    <!-- EQUIPO -->
+    <section class="equipo" id="equipo">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="section-tag">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Nuestro Equipo
+                </div>
+                <h2>Profesionales a tu Servicio</h2>
+                <p>Un equipo multidisciplinario que cubre todas las areas que tu empresa necesita</p>
+            </div>
+            <div class="equipo-grid">
+                <div class="equipo-card" data-aos="fade-up" data-aos-delay="0">
+                    <div class="equipo-photo-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="equipo-body">
+                        <h3>Carolina</h3>
+                        <div class="equipo-role">Abogada &middot; Especialista Tributaria</div>
+                        <p>Lidera el estudio con enfoque practico en asesoria tributaria y legal para empresas y emprendedores.</p>
+                    </div>
+                </div>
+                <div class="equipo-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="public/evelyn-tobar.jpeg" alt="Evelyn Tobar, Contador Auditor" class="equipo-photo" loading="lazy">
+                    <div class="equipo-body">
+                        <h3>Evelyn Tobar</h3>
+                        <div class="equipo-role">Contador Auditor</div>
+                        <p>Encargada del area contable, balances y cumplimiento de obligaciones ante el SII con precision y rigurosidad.</p>
+                    </div>
+                </div>
+                <div class="equipo-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="equipo-photo-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="equipo-body">
+                        <h3>Equipo Legal</h3>
+                        <div class="equipo-role">Red de Especialistas</div>
+                        <p>Contamos con profesionales de apoyo en materias laborales, comerciales y corporativas segun cada caso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- TESTIMONIOS -->
     <section class="testimonios">
         <div class="container">
@@ -1773,8 +1943,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             </div>
                             <div class="contact-item-text">
-                                <h4>Telefono</h4>
-                                <p>+56 9 XXXX XXXX</p>
+                                <h4>Telefono / WhatsApp</h4>
+                                <p>+56 9 9796 2448</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1798,20 +1968,31 @@
                     </div>
                 </div>
                 <div class="form-card" data-aos="fade-left">
-                    <form>
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Web3Forms: reemplazar por la access key real de Carolina -->
+                        <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+                        <input type="hidden" name="subject" value="Nueva consulta desde la web">
+                        <input type="hidden" name="from_name" value="Web Carolina Asesorias">
+                        <!-- Honeypot anti-spam -->
+                        <input type="checkbox" name="botcheck" style="display:none;">
+
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Nombre</label>
-                                <input type="text" placeholder="Tu nombre">
+                                <label for="cf-nombre">Nombre</label>
+                                <input type="text" id="cf-nombre" name="nombre" placeholder="Tu nombre" required>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" placeholder="tu@email.com">
+                                <label for="cf-email">Email</label>
+                                <input type="email" id="cf-email" name="email" placeholder="tu@email.com" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Servicio de interes</label>
-                            <select>
+                            <label for="cf-telefono">Telefono (opcional)</label>
+                            <input type="tel" id="cf-telefono" name="telefono" placeholder="+56 9 ...">
+                        </div>
+                        <div class="form-group">
+                            <label for="cf-servicio">Servicio de interes</label>
+                            <select id="cf-servicio" name="servicio" required>
                                 <option value="">Selecciona un servicio</option>
                                 <option>Asesoria Tributaria</option>
                                 <option>Asesoria Contable</option>
@@ -1820,13 +2001,14 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Mensaje</label>
-                            <textarea placeholder="Cuentame brevemente en que te puedo ayudar..."></textarea>
+                            <label for="cf-mensaje">Mensaje</label>
+                            <textarea id="cf-mensaje" name="mensaje" placeholder="Cuentame brevemente en que te puedo ayudar..." required></textarea>
                         </div>
                         <button type="submit" class="btn-submit">
-                            Enviar Consulta
+                            <span class="btn-submit-text">Enviar Consulta</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                         </button>
+                        <div class="form-result" id="formResult"></div>
                     </form>
                 </div>
             </div>
@@ -1878,6 +2060,7 @@
         </button>
         <a href="#servicios" class="mobile-link">Servicios</a>
         <a href="#agendar" class="mobile-link">Agendar</a>
+        <a href="#equipo" class="mobile-link">Equipo</a>
         <a href="#blog" class="mobile-link">Blog</a>
         <a href="#about" class="mobile-link">Sobre Mi</a>
         <a href="#contacto" class="mobile-link">Contactar</a>
@@ -1886,7 +2069,7 @@
     <!-- WHATSAPP -->
     <div class="wa-float">
         <div class="wa-tooltip">Necesitas asesoria? Escribeme</div>
-        <a href="https://wa.me/569XXXXXXXX?text=Hola%20Carolina,%20necesito%20asesor%C3%ADa" class="wa-btn" target="_blank" aria-label="Contactar por WhatsApp">
+        <a href="https://wa.me/56997962448?text=Hola%20Carolina,%20necesito%20asesoria%20tributaria" class="wa-btn" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                 <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.13 6.742 3.05 9.378L1.054 31.29l6.12-1.96A15.908 15.908 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.335 22.594c-.39 1.1-1.932 2.014-3.164 2.28-.844.18-1.946.324-5.66-1.216-4.748-1.97-7.806-6.78-8.04-7.094-.226-.314-1.9-2.53-1.9-4.826s1.2-3.424 1.628-3.892c.39-.426 1.04-.618 1.66-.618.2 0 .38.01.54.018.468.02.702.048 1.012.784.386.92 1.326 3.23 1.44 3.466.116.234.232.548.076.862-.148.322-.278.468-.512.736-.234.268-.458.472-.692.76-.216.252-.458.52-.196.988.262.46 1.164 1.918 2.498 3.108 1.718 1.53 3.164 2.004 3.612 2.228.348.174.762.136 1.032-.156.344-.372.77-.988 1.204-1.596.308-.434.696-.488 1.082-.332.392.148 2.494 1.176 2.922 1.39.428.216.714.324.82.502.104.178.104 1.032-.286 2.132z"/>
             </svg>
@@ -1896,13 +2079,67 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
+        // ====== CONFIG (reemplazar con datos reales) ======
+        // 1. Crear cuenta gratis en https://calendly.com y pegar el link del evento aqui:
+        const CALENDLY_URL = 'https://calendly.com/carolina-asesorias/consulta';
+        // 2. Web3Forms access key: crear gratis en https://web3forms.com (se pega en el input hidden del form)
+
         // Init AOS
         AOS.init({
             once: true,
             duration: 700,
             easing: 'ease-out-cubic'
         });
+
+        // Calendly popup on buttons with data-calendly
+        document.querySelectorAll('[data-calendly]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (window.Calendly && CALENDLY_URL.indexOf('carolina-asesorias/consulta') === -1) {
+                    e.preventDefault();
+                    Calendly.initPopupWidget({ url: CALENDLY_URL });
+                }
+                // Si Calendly aun no esta configurado, el link cae a #agendar (calendario visual)
+            });
+        });
+
+        // Contact form (Web3Forms)
+        const contactForm = document.getElementById('contactForm');
+        const formResult = document.getElementById('formResult');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const submitBtn = contactForm.querySelector('.btn-submit');
+                const btnText = contactForm.querySelector('.btn-submit-text');
+                const originalText = btnText.textContent;
+                submitBtn.disabled = true;
+                btnText.textContent = 'Enviando...';
+                formResult.className = 'form-result';
+
+                const formData = new FormData(contactForm);
+                try {
+                    const res = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        formResult.className = 'form-result success';
+                        formResult.textContent = 'Gracias por tu mensaje. Te responderemos dentro de 24 horas.';
+                        contactForm.reset();
+                    } else {
+                        formResult.className = 'form-result error';
+                        formResult.textContent = 'Hubo un problema al enviar. Escribenos por WhatsApp mientras lo revisamos.';
+                    }
+                } catch (err) {
+                    formResult.className = 'form-result error';
+                    formResult.textContent = 'Error de conexion. Intenta de nuevo o escribenos por WhatsApp.';
+                }
+                submitBtn.disabled = false;
+                btnText.textContent = originalText;
+            });
+        }
 
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
